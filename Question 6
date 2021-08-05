@@ -1,15 +1,27 @@
-package e6
+package test1
 
 object e6 {
+
   def fibb(num:Int):Int={
     num match {
-      case 0 => return 0;
-      case 1 => return 1;
-      case _ => return fibb(num-1)+fibb(num-2);
+      case 0 => return 0
+      case 1 => return 1
+      case _ => return fibb(num-1)+fibb(num-2)
     }
   }
 
-  def main(args: Array[String]): Unit = {
-    print(fibb(9));
+  def allfibb(num:Int):Unit={
+    if(num > 0){
+      allfibb(num-1)
+    }
+    print(" "+fibb(num)+" ")
+
   }
+
+  def main(args: Array[String]): Unit = {
+
+    allfibb(10)
+
+  }
+
 }
