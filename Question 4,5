@@ -1,29 +1,37 @@
-package e4e5
+package test1
 
 object e4e5 {
+
   def isEven(num:Int):Boolean={
     num match {
-      case 0 => true;
-      case _ => isOdd(num-1);
+      case 0 => return true
+      case _ => return isOdd(num-1)
     }
+
   }
 
   def isOdd(num:Int):Boolean={
-    return !isEven(num);
+    return !isEven(num)
+//        num match {
+//          case 0 => return false
+//          case _ => return isEven(num-1)
+//        }
   }
 
-  def allEven(num:Int):Unit={
-    if(num>1){
-      allEven(num-1);
-    }
-    if(isEven(num)){
-      print(" "+num+" ");
+  def sumEven(num:Int):Int={
+    num match {
+      case x if(x < 2) => return 0
+      case 2 => return 2
+      case x if(x > 2 && isEven(x) == true) => sumEven(num-2)+num
+      case x if(x > 2 && isOdd(x) == true) => sumEven(num-1)
     }
   }
 
   def main(args: Array[String]): Unit = {
-    println(isEven(5));
-    println(isEven(10));
-    allEven(10);
+    println(isEven(5))
+    println(isOdd(5))
+    println(sumEven(1))
+
+
   }
 }
